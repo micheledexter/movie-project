@@ -1,0 +1,16 @@
+.order:hover {
+    cursor: pointer;
+}
+.order:focus {
+    outline: none;
+}
+.list {
+    width: 60px;
+    height: 88px;
+}
+th, td {
+    text-align: center;
+}
+table {
+    border-collapse: null;
+}

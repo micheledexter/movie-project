@@ -11,16 +11,28 @@
     <script src="./vendors/angular-material/angular-material.js"></script>
     <script src="./vendors/angular-route/angular-route.js"></script>
     <script src="./scripts/client.js"></script>
+    <script src="./scripts/controllers/genres.controller.js"></script>
+    <script src="./scripts/controllers/movies.controller.js"></script>
+    <script src="./scripts/services/collection.service.js"></script>
+    <script src="./scripts/services/omdb.service.js"></script>
     <link rel="stylesheet" href="./vendors/angular-material/angular-material.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <title>Movie Collection</title>
 </head>
-<body>
+<body ng-app="MovieApp">
     <header>
         <h1>Movie Database</h1>
+        <ul>
+            <li>
+                <a ng-href="#!/movies">Movies</a>
+            </li>
+            <li>
+                <a ng-href="#!/genres">Genres</a>
+            </li>
+        </ul>
     </header>
     <main>
-        <ng-main></ng-main>
+        <ng-view></ng-view>
     </main>
     <footer>
         <p>Copyright &copy; 2018 Shely Dexter <br />
