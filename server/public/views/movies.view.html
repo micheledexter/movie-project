@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="2" class="order" ng-click="vm.order.category = 'name'">Name</th>
+            <th class="order" ng-click="vm.order.category = 'genre'">Genre</th>
+            <th class="order" ng-click="vm.order.category = 'release_date'">Release Date</th>
+            <th class="order" ng-click="vm.order.category = 'run_time'">Run Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="movie in vm.collection.list | orderBy:vm.order.category">
+            <td>
+                <img class="list" alt="{{movie.name}} movie poster" ng-src="{{movie.image}}" />
+            </td>
+            <td>{{movie.name}}</td>
+            <td>{{movie.genre}}</td>
+            <td>{{movie.release_date | date}}</td>
+            <td>{{movie.run_time}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,12 +1,15 @@
 console.log('js');
+
+const API_KEY = '19a2ba73';
+
 var app = angular.module('MovieApp', ['ngRoute', 'ngMaterial']);
 
-app.config('$routeProvider', function ($routeProvider) {
+app.config(function ($routeProvider) {
     console.log('Route config loaded');
 
     $routeProvider
     .when('/', {
-        redirectTo: '/movies'
+        template: '<h1>HELLO TACO</h1>'
     }).when('/movies', {
         templateUrl:'views/movies.view.html',
         controller: 'MoviesController as vm'

@@ -4,9 +4,8 @@ const pool = require('../modules/database.connection');
 const API_KEY = '19a2ba73';
 
 router.get('/:t', (req, res) => {
-    console.log(req.body);
-    console.log(req.query);
-    console.log(req.params);
+    const queryString = `http://www.omdbapi.com/?apikey=${API_KEY}&t=${req.params.t}`;
+    console.log(req.body, req.params, req.query); 
 });
 
 module.exports = router;
