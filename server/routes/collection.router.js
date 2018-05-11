@@ -4,11 +4,11 @@ const pool = require('../modules/database.connection');
 // GET /collection (search query or all)
 router.get('/', (req, res) => {
     const collectionSearch = req.query.q;
+    console.log('GET /collection');
     if (collectionSearch != undefined) {
         pool.query(`SELECT "movies"."id", "movies"."name", "genres"."name" AS "genre", "movies"."release_date", "movies"."run_time", "movies"."image" FROM "movies" JOIN "genres" ON "movies"."genre_id" = "genres"."id" WHERE "movies"."name" ILIKE $1 OR "genres"."name" ILIKE $1;`, [
             ('%' + collectionSearch + '%')
         ]).then((response) => {
-            console.log(response);
             res.send(response.rows);
         }).catch((error) => {
             console.log(`ERROR occurred during GET /collection: ${error}`);

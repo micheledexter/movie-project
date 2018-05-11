@@ -60,7 +60,7 @@ router.post('/', (req, res) => {
 // PUT /movies/:id (data sent in body for specific movie id)
 router.put('/:id', (req, res) => {
     const movie = req.body;
-    const movieId = req.body;
+    const movieId = req.params.id;
     console.log(`PUT /movies/${movieId}: ${movie}`);
     pool.query(`UPDATE "movies" SET "name" = $1, "genre_id" = $2, "release_date" = $3, "run_time = $4, "image" = $5 WHERE "id" = $6;`, [
         movie.name,

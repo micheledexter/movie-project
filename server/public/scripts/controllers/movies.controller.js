@@ -12,6 +12,5 @@ app.controller('MoviesController', ['CollectionService', 'OmdbService', function
 
     self.query = function (title) {
         OmdbService.queryOmdb(title);
-
     }
 }]);
