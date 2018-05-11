@@ -26,7 +26,9 @@ app.service('CollectionService', ['$http', function ($http) {
     self.newGenre = {
         genre: ''
     };
-
+    self.order = {
+        category: 'name'
+    }
 
     self.getCollection = function () {
         $http({
@@ -34,7 +36,17 @@ app.service('CollectionService', ['$http', function ($http) {
             url: '/collection'
         }).then(function (response) {
             console.log('Received response');
-
+            self.collection.list = response.data;
+            for (let i = 0; i < self.collection.list.length; i++) {
+                if (!self.collection.list[i].image.includes('/')) {
+                    self.collection.list[i].image = '/images/' + self.collection.list[i].image;
+                }
+            }
+        }).catch(function (error) {
+            console.log(`ERROR occurred during GET /collection: ${error}`);
+            alert('ERROR occurred during GET /collection');
         })
     };
+
+    if (self.collection.list.length == 0) self.getCollection();
 }]);
