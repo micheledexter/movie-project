@@ -8,12 +8,17 @@ app.service('OmdbService', ['$http', function ($http) {
         list: []
     };
 
+    self.search = {
+        query: ''
+    };
+
     self.omdbMovie = {
         name: '',
         genre: '',
         release_date: '',
         run_time: '',
-        image: ''
+        image: '',
+        raw: {}
     };
 
     self.queryOmdb = function (query) {
@@ -66,7 +71,7 @@ app.service('OmdbService', ['$http', function ($http) {
             self.omdbMovie.release_date = rd[2] + '-' + rd[1] + '-' + rd[0];
             self.omdbMovie.run_time = movie.Runtime.split(' ')[0];
             self.omdbMovie.image = movie.Poster;
-            console.log(self.omdbMovie);
+            self.omdbMovie.raw = movie;
         }).catch(function (error) {
             console.log(`ERROR occurred during GET /omdb: ${error}`);
         });

@@ -1,3 +1,17 @@
+<h2>Add Movie</h2>
+<form>
+    <label tooltip="Tries its best to guess based on entry">Auto-fill Search: </label>
+    <input ng-model="vm.search.query" placeholder="Movie Title" />
+    <md-button ng-click="vm.queryOmdb(vm.search.query)" class="md-raised md-primary">Search</md-button>
+</form>
+<form>
+    <input ng-model="vm.omdbMovie.name" placeholder="Title" />
+    <input ng-model="vm.omdbMovie.genre" placeholder="Genre" />
+    <input ng-model="vm.omdbMovie.release_date" placeholder="Release Date" />
+    <input ng-model="vm.omdbMovie.run_time" placeholder="Run Time" />
+    <input ng-model="vm.omdbMovie.image" placeholder="Image URL" />
+    <md-button class="md-raised md-primary">Submit</md-button>
+</form>
 <table>
     <thead>
         <tr>
