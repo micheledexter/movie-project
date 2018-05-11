@@ -9,4 +9,9 @@ app.controller('MoviesController', ['CollectionService', 'OmdbService', function
     self.search = OmdbService.search;
     self.queryOmdb = OmdbService.queryOmdb;
     self.omdbMovie = OmdbService.omdbMovie;
+
+    self.query = function (title) {
+        OmdbService.queryOmdb(title);
+
+    }
 }]);
