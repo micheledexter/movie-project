@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const movieRouter = require('./routes/movies.router');
 const genreRouter = require('./routes/genres.router');
 const collectionRouter = require('./routes/collection.router');
+const omdbRouter = require('./routes/omdb.router');
 
 app.use(express.static('server/public'));
 app.use(bodyParser.json());
