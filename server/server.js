@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use('/movies', movieRouter);
 app.use('/genres', genreRouter);
 app.use('/collection', collectionRouter);
+app.use('/omdb', omdbRouter);
 app.listen(PORT, () => {
     console.log(`Express listening on port: ${PORT}`);
 });
