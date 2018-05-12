@@ -169,7 +169,7 @@ app.service('CollectionService', ['$http', function ($http) {
     };
 
     /*
-    ALL OF THE POST, PUT, AND DELETE REQUESTS
+    ALL OF THE POST REQUESTS
     */
 
     // Add a movie to the table
@@ -204,6 +204,10 @@ app.service('CollectionService', ['$http', function ($http) {
         });
     };
 
+    /*
+    ALL OF THE PUT REQUESTS
+    */
+
     // Update a movie in the table
     self.updateMovie = function (movie, movieId) {
         movieId = '/movies/' + movieId;
@@ -237,6 +241,10 @@ app.service('CollectionService', ['$http', function ($http) {
             alert('ERROR occurred during PUT /genres/:id');
         });
     };
+
+    /*
+    ALL OF THE DELETE REQUESTS
+    */
 
     // Delete a movie from the table
     self.deleteMovie = function (movieId) {

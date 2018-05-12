@@ -1,35 +1,58 @@
-<h2>Add Movie</h2>
-<form>
-    <label tooltip="Tries its best to guess based on entry">Auto-fill Search: </label>
-    <input ng-model="vm.search.query" placeholder="Movie Title" />
-    <md-button ng-click="vm.queryOmdb(vm.search.query)" class="md-raised md-primary">Search</md-button>
-</form>
-<form>
-    <input ng-model="vm.omdbMovie.name" placeholder="Title" />
-    <input ng-model="vm.omdbMovie.genre" placeholder="Genre" />
-    <input ng-model="vm.omdbMovie.release_date" placeholder="Release Date" />
-    <input ng-model="vm.omdbMovie.run_time" placeholder="Run Time" />
-    <input ng-model="vm.omdbMovie.image" placeholder="Image URL" />
-    <md-button class="md-raised md-primary">Submit</md-button>
-</form>
-<table>
-    <thead>
-        <tr>
-            <th colspan="2" class="order" ng-click="vm.order.category = 'name'">Name</th>
-            <th class="order" ng-click="vm.order.category = 'genre'">Genre</th>
-            <th class="order" ng-click="vm.order.category = 'release_date'">Release Date</th>
-            <th class="order" ng-click="vm.order.category = 'run_time'">Run Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="movie in vm.collection.list | orderBy:vm.order.category">
-            <td>
-                <img class="list" alt="{{movie.name}} movie poster" ng-src="{{movie.image}}" />
-            </td>
-            <td>{{movie.name}}</td>
-            <td>{{movie.genre}}</td>
-            <td>{{movie.release_date | date}}</td>
-            <td>{{movie.run_time}}</td>
-        </tr>
-    </tbody>
-</table>
+<md-content>
+    <h2>Add Movie</h2>
+    <form>
+        <label tooltip="Tries its best to guess based on entry">Auto-fill Search: </label>
+        <input ng-model="vm.search.query" placeholder="Movie Title" />
+        <md-button ng-click="vm.queryOmdb(vm.search.query)" class="md-raised md-primary">Search</md-button>
+    </form>
+    <form>
+        <input md-input ng-model="vm.omdbMovie.name" placeholder="Title" />
+        <input ng-model="vm.omdbMovie.genre" placeholder="Genre" />
+        <md-datepicker ng-model="vm.omdbMovie.release_date" placeholder="Release Date"></md-datepicker>
+        <input ng-model="vm.omdbMovie.run_time" placeholder="Run Time" />
+        <input ng-model="vm.omdbMovie.image" placeholder="Image URL" />
+        <md-button class="md-raised md-primary" ng-click="vm.addNewMovie(vm.omdbMovie)">Submit</md-button>
+    </form>
+    <!-- <table>
+        <thead>
+            <tr>
+                <th colspan="2" class="order" ng-click="vm.order.category = 'name'">Name</th>
+                <th class="order" ng-click="vm.order.category = 'genre'">Genre</th>
+                <th class="order" ng-click="vm.order.category = 'release_date'">Release Date</th>
+                <th class="order" ng-click="vm.order.category = 'run_time'">Run Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="movie in vm.collection.list | orderBy:vm.order.category">
+                <td>
+                    <img class="list" alt="{{movie.name}} movie poster" ng-src="{{movie.image}}" />
+                </td>
+                <td>{{movie.name}}</td>
+                <td>{{movie.genre}}</td>
+                <td>{{movie.release_date | date}}</td>
+                <td>{{movie.run_time}}</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div class="movie-cards" ng-repeat="movie in vm.collection.list | orderBy:vm.order.category">
+        <md-card ng-style="{'background-image':'url(' + movie.image + ')'}">
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title">{{movie.name}}</span>
+                    <span class="md-subhead">{{movie.genre}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <img ng-src="{{movie.image}}" class="md-card-image" alt="{{movie.image}} movie poster">
+            <md-card-actions layout="column" layout-align="start center">
+                <md-button class="md-raised md-primary">View Details</md-button>
+                <md-button class="md-raised md-secondary">Add to Favorites</md-button>
+            </md-card-actions>
+            <md-card-content>
+                <p>
+                    Release date: {{movie.release_date | date}}
+                    <br /> Runtime: {{movie.run_time}}
+                </p>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

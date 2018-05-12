@@ -14,3 +14,35 @@ th, td {
 table {
     border-collapse: null;
 }
+.movie-cards {
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.md-card-image {
+    width: 60px;
+    height: 88px;
+    margin: auto;
+    visibility: hidden;
+}
+.movie-cards {
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+md-card {
+    width: 300px;
+    height: 400px;
+}
+md-card-header {
+    background-color: #ffffffcc;
+}
+md-card-content {
+    background-color: #000000cc;
+    color: white;
+}
+md-card-content {
+    margin-top: auto;
+}

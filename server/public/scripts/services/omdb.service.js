@@ -68,7 +68,7 @@ app.service('OmdbService', ['$http', function ($http) {
                     rd[1] = '12';
                     break;
             }
-            self.omdbMovie.release_date = rd[2] + '-' + rd[1] + '-' + rd[0];
+            self.omdbMovie.release_date = new Date(rd[2] + '-' + rd[1] + '-' + rd[0] + 'T00:00:00Z');
             self.omdbMovie.run_time = movie.Runtime.split(' ')[0];
             self.omdbMovie.image = movie.Poster;
             self.omdbMovie.raw = movie;
