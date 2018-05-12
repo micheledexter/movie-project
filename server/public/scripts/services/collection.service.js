@@ -174,6 +174,14 @@ app.service('CollectionService', ['$http', function ($http) {
 
     // Add a movie to the table
     self.addNewMovie = function (movie) {
+        const genres = self.genres.list;
+        for (let i = 0; i < genres.length; i++) {
+            if (movie.genre == genres[i].name) {
+                movie.genre_id = genres[i].id;
+                break;
+            }
+        }
+        console.log(movie);
         $http({
             method: 'POST',
             url: '/movies',
