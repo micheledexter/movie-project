@@ -5,13 +5,12 @@ app.controller('MoviesController', ['CollectionService', 'OmdbService', function
 
     self.getCollection = CollectionService.getCollection;
     self.collection = CollectionService.collection;
+    self.movies = CollectionService.movies;
+    self.genres = CollectionService.genres;
     self.order = CollectionService.order;
     self.search = OmdbService.search;
     self.queryOmdb = OmdbService.queryOmdb;
     self.omdbMovie = OmdbService.omdbMovie;
     self.addNewMovie = CollectionService.addNewMovie;
-
-    self.query = function (title) {
-        OmdbService.queryOmdb(title);
-    }
+    self.getGenreIdByName = CollectionService.getGenreIdByName;
 }]);

@@ -1,8 +1,23 @@
-.order:hover {
+li.order:hover {
     cursor: pointer;
+    font-weight: bold;
 }
-.order:focus {
+li.order:focus {
     outline: none;
+}
+li.order {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+ul.order {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+}
+.order {
+    list-style: none;
+    display: inline-block;
 }
 .list {
     width: 60px;
