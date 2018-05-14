@@ -27,7 +27,7 @@ app.service('CollectionService', ['$http', function ($http) {
         image: ''
     };
     self.newGenre = {
-        genre: ''
+        name: ''
     };
     self.order = {
         category: 'name'
@@ -38,7 +38,7 @@ app.service('CollectionService', ['$http', function ($http) {
     */
 
     // Count the number of movies in passed genre
-    self.countGenreMovies = function(genre) {
+    self.countGenreMovies = function (genre) {
         let counter = 0;
         for (let movie of self.collection.list) {
             if (movie.genre == genre) counter++;
@@ -211,14 +211,16 @@ app.service('CollectionService', ['$http', function ($http) {
 
     // Add a genre to the table
     self.addNewGenre = function (genre) {
+        console.log(genre);
         $http({
             method: 'POST',
-            url: '/movies',
+            url: '/genres',
             data: genre
         }).then(function (response) {
             console.log(response.data);
             self.getGenres();
             self.getCollection();
+            self.newGenre.name = '';
         }).catch(function (error) {
             console.log(`ERROR occurred during POST /genres: ${error}`);
             alert('ERROR occurred during POST /genres');
@@ -284,19 +286,23 @@ app.service('CollectionService', ['$http', function ($http) {
     };
 
     // Delete a genre from the table
-    self.deleteGenre = function (genreId) {
-        genreId = '/genres/' + genreId;
-        $http({
-            method: 'DELETE',
-            url: genreId
-        }).then(function (response) {
-            console.log(response.data);
-            self.getGenres();
-            self.getCollection();
-        }).catch(function (error) {
-            console.log(`ERROR occurred during DELETE /genres/:id`);
-            alert('ERROR occurred during DELETE /genres/:id');
-        });
+    self.deleteGenre = function (genre) {
+        if (self.countGenreMovies(genre.name) > 0) {
+            alert('A genre with movies cannot be deleted.');
+        } else {
+            genreId = '/genres/' + genre.id;
+            $http({
+                method: 'DELETE',
+                url: genreId
+            }).then(function (response) {
+                console.log(response.data);
+                self.getGenres();
+                self.getCollection();
+            }).catch(function (error) {
+                console.log(`ERROR occurred during DELETE /genres/:id`);
+                alert('ERROR occurred during DELETE /genres/:id');
+            });
+        }
     };
 
     // Populate local information
@@ -314,6 +320,6 @@ app.service('CollectionService', ['$http', function ($http) {
             self.genres.current = self.genres.current.length;
         }
     }
-    
+
     self.updateLists();
 }]);

@@ -4,8 +4,8 @@
         <form>
             <md-input-container>
                 <label>Genre Name</label>
-                <input id="genreEntry" ng-model="vm.newGenre.genre" />
-                <md-button id="genreSubmit" class="md-raised md-primary" ng-click="vm.addNewGenre(vm.newGenre.genre)">Add Genre</md-button>
+                <input id="genreEntry" ng-model="vm.newGenre.name" />
+                <md-button id="genreSubmit" class="md-raised md-primary" ng-click="vm.addNewGenre(vm.newGenre)">Add Genre</md-button>
             </md-input-container>
         </form>
     </div>
@@ -19,10 +19,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="genre in vm.genres.list | orderBy:vm.genres.list.name">
+                <tr ng-repeat="genre in vm.genres.list | orderBy:'name'">
                     <td>{{genre.name}}</td>
                     <td>{{vm.countGenreMovies(genre.name)}}</td>
-                    <td><md-button class="md-raised md-warn">Delete</md-button></td>
+                    <td><md-button ng-click="vm.deleteGenre(genre)" class="md-raised md-warn">Delete</md-button></td>
                 </tr>
             </tbody>
         </table>
