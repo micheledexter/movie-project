@@ -21,15 +21,19 @@
 </head>
 <body ng-app="MovieApp">
     <header>
-        <h1>Movie Database</h1>
-        <ul>
+            <h1>Movie Database</h1>
+        <div class="nav-buttons" id="navbar">
+            <md-button ng-href="#!/movies" class="md-raised">Movies</md-button>
+            <md-button ng-href="#!/genres" class="md-raised">Genres</md-button>
+        </div>
+        <!-- <ul>
             <li>
                 <a ng-href="#!/movies">Movies</a>
             </li>
             <li>
                 <a ng-href="#!/genres">Genres</a>
             </li>
-        </ul>
+        </ul> -->
     </header>
     <main>
         <ng-view></ng-view>

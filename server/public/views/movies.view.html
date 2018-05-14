@@ -36,7 +36,11 @@
         <li class="order" ng-click="vm.order.category = 'release_date'">Release Date</li>
         <li class="order" ng-click="vm.order.category = 'run_time'">Runtime</li>
     </ul>
-    <div class="movie-cards" ng-repeat="movie in vm.collection.list | orderBy:vm.order.category">
+    <md-input-container id="movieFilter">
+        <label>Filter</label>
+        <input ng-model="vm.filter" />
+    </md-input-container>
+    <div class="movie-cards" ng-repeat="movie in vm.collection.list | orderBy:vm.order.category | filter:vm.filter">
         <md-card ng-style="{'background-image':'url(' + movie.image + ')'}">
             <md-card-header>
                 <md-card-header-text>

@@ -14,4 +14,5 @@ app.controller('GenresController', ['CollectionService', function (CollectionSer
     self.deleteGenre = CollectionService.deleteGenre;
     self.updateLists = CollectionService.updateLists;
     self.countGenreMovies = CollectionService.countGenreMovies;
+    self.filter = '';
 }]);

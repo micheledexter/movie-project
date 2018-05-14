@@ -67,3 +67,19 @@ md-card-content {
 #genreSubmit {
     display: inline-block;
 }
+#movieFilter {
+    display: block;
+}
+body {
+    max-width: 1024;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+tr, th, td {
+    border: 1px;
+}
