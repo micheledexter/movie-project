@@ -50,14 +50,16 @@
             </md-card-header>
             <img ng-src="{{movie.image}}" class="md-card-image" alt="{{movie.image}} movie poster">
             <md-card-actions layout="column" layout-align="start center">
-                <md-button class="md-raised md-primary">View Details</md-button>
-                <md-button class="md-raised md-secondary">Add to Favorites</md-button>
+                <!-- <md-button class="md-raised md-primary">View Details</md-button>
+                <md-button class="md-raised md-secondary">Add to Favorites</md-button> -->
             </md-card-actions>
             <md-card-content>
                 <p>
                     Release date: {{movie.release_date | date}}
                     <br /> Runtime: {{movie.run_time}}
                 </p>
+                
+                <md-button class="md-raised md-warn" ng-click="vm.deleteMovie(movie.id)">{{movie.id}}</md-button>
             </md-card-content>
         </md-card>
     </div>

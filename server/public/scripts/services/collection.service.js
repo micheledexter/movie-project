@@ -46,6 +46,14 @@ app.service('CollectionService', ['$http', function ($http) {
         return counter;
     }
 
+    self.getGenreIdByName = function (genre) {
+        for (let current of self.genres.list) {
+            if (current.name == genre) {
+                return current.id;
+            }
+        }
+    };
+
     /*
     ALL OF THE GET REQUESTS
     */
