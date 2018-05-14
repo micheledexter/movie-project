@@ -13,5 +13,6 @@ app.controller('MoviesController', ['CollectionService', 'OmdbService', function
     self.omdbMovie = OmdbService.omdbMovie;
     self.addNewMovie = CollectionService.addNewMovie;
     self.getGenreIdByName = CollectionService.getGenreIdByName;
+    self.deleteMovie = CollectionService.deleteMovie;
     self.filter = '';
 }]);
