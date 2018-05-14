@@ -61,3 +61,9 @@ md-card-content {
 md-card-content {
     margin-top: auto;
 }
+#genreEntry {
+    display: inline-block;
+}
+#genreSubmit {
+    display: inline-block;
+}

@@ -34,6 +34,19 @@ app.service('CollectionService', ['$http', function ($http) {
     }
 
     /*
+    ALL OF THE NON-AJAX REQUESTS
+    */
+
+    // Count the number of movies in passed genre
+    self.countGenreMovies = function(genre) {
+        let counter = 0;
+        for (let movie of self.collection.list) {
+            if (movie.genre == genre) counter++;
+        }
+        return counter;
+    }
+
+    /*
     ALL OF THE GET REQUESTS
     */
 

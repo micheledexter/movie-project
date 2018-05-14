@@ -1,1 +1,30 @@
-{{vm}}
+<md-content>
+    <div id="newGenre">
+        <h2>Add Genre</h2>
+        <form>
+            <md-input-container>
+                <label>Genre Name</label>
+                <input id="genreEntry" ng-model="vm.newGenre.genre" />
+                <md-button id="genreSubmit" class="md-raised md-primary" ng-click="vm.addNewGenre(vm.newGenre.genre)">Add Genre</md-button>
+            </md-input-container>
+        </form>
+    </div>
+    <div id="genreList">
+        <table>
+            <thead>
+                <tr>
+                    <th>Projects</th>
+                    <th>Total Movies</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="genre in vm.genres.list | orderBy:vm.genres.list.name">
+                    <td>{{genre.name}}</td>
+                    <td>{{vm.countGenreMovies(genre.name)}}</td>
+                    <td><md-button class="md-raised md-warn">Delete</md-button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</md-content>
