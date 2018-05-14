@@ -9,7 +9,7 @@ app.config(function ($routeProvider) {
 
     $routeProvider
     .when('/', {
-        template: '<h1>HELLO TACO</h1>'
+        redirectTo: '/movies'
     }).when('/movies', {
         templateUrl:'views/movies.view.html',
         controller: 'MoviesController as vm'
