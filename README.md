@@ -1,6 +1,29 @@
-# Extended Weekend Challenge: Movie Collection Project
+# Movie Database
 
-## Database SQL
+A simple movie database app with a built-in form search-and-fill aspect that 
+
+## Built With
+
+* React
+* Material-UI
+* PostgreSQL
+* OMDB API
+
+## Getting Started
+
+Either clone or download the project onto your computer. Create a PostgreSQL database named `movies` and start up the PostgreSQL server.
+
+### Prerequisites
+
+If you have any movie cover images you would like to use outside of ones that you might find through an OMDB database search, copy them into the project images folder with names you will remember.
+
+- [Node.js](https://nodejs.org/en/)
+- [PostgreSQL](https://postgresql.org)
+
+
+### Installing
+
+Run `npm install` in the main project folder, and run the following PostgreSQL query:
 
 ```sql
 CREATE TABLE "genres" (
@@ -16,7 +39,11 @@ CREATE TABLE "movies" (
 	"run_time" INT NOT NULL,
 	"image" VARCHAR(1000)
 );
+```
 
+For dummy data, run the following PostgreSQL query:
+
+```sql
 INSERT INTO "genres" ("name") VALUES
 ('Action'),			--1
 ('Action-Comedy'),	--2
@@ -125,3 +152,30 @@ INSERT INTO "movies" ("name", "genre_id", "release_date", "run_time", "image") V
 ('The Hateful Eight', '26', '2015-12-30', '187', 'the-hateful-eight.jpg'),
 ('Django Unchained', '26', '2012-12-25', '165', 'django-unchained.jpg');
 ```
+
+### Completed Features
+
+High level list of items completed.
+
+- [x] Search OMDB for a movie and autofill any fields with the returned data
+- [x] Search for a movie in the project database
+- [x] Enter in the movie information manually for any other movies
+
+### Next Steps
+
+Features that you would like to add at some point in the future.
+
+- [ ] Create cards of OMDB movie searches so you can see what you'll be adding
+
+## Deployment
+
+Run `npm start` and go to `http://localhost:5000` to view the project live
+
+## Authors
+
+* Shely Dexter
+
+
+## Acknowledgments
+
+* Open Movie Database
