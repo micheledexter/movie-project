@@ -1,6 +1,6 @@
 # Movie Database
 
-A simple movie database app with a built-in form search-and-fill aspect that 
+A simple movie database app with an OMDB search field that will autofill the form with necessary movie data for released movies.
 
 ## Built With
 
